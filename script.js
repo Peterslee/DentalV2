@@ -47,16 +47,16 @@ function form(k){W('');const C=CATS[k],names=Object.keys(C.svc);
  <fieldset><legend>Layanan</legend><div class="f"><span class="l req">Pilih layanan</span><div class="chips">${names.map(s=>`<label class="chip"><input type="radio" name="layanan" value="${s}"><span>${s}</span></label>`).join('')}</div></div><div id="sub"></div></fieldset>
  <fieldset><legend>Data pasien</legend><div class="grid">
  <div class="f full"><label class="l req" for="nama">Nama lengkap</label><input id="nama" name="nama" type="text" autocomplete="name" required></div>
- <div class="f"><label class="l req" for="lahir">Tanggal lahir</label><input id="lahir" name="lahir" type="date" required></div>
+ <div class="f"><label class="l req" for="lahir">Tanggal lahir</label><input id="lahir" name="lahir" type="date" ></div>
  <div class="f"><span class="l req">Jenis kelamin</span>${chips('jk',G,'radio',1)}</div>
- <div class="f"><label class="l req" for="hp">No. WhatsApp</label><input id="hp" name="hp" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" required></div>
+ <div class="f"><label class="l req" for="hp">No. WhatsApp</label><input id="hp" name="hp" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" ></div>
  <div class="f"><label class="l" for="alamat">Alamat</label><input id="alamat" name="alamat" type="text" autocomplete="street-address"></div>
  <div class="f full"><span class="l">Riwayat kesehatan</span>${chips('sakit',['Diabetes','Hipertensi','Jantung','Hemofilia','Asma','Hamil'],'checkbox')}</div>
  <div class="f full"><label class="l" for="alergi">Alergi obat / bahan</label><input id="alergi" name="alergi" type="text" placeholder="Kosongkan jika tidak ada"></div></div></fieldset>
  <fieldset><legend>Data lengkap ${C.n}</legend><div class="grid">${BIO[k].map(field).join('')}</div></fieldset>
  <fieldset><legend>Jadwal kunjungan</legend><div class="grid">
- <div class="f"><label class="l req" for="tgl">Tanggal</label><input id="tgl" name="tgl" type="date" required></div>
- <div class="f"><label class="l req" for="jam">Jam</label><select id="jam" name="jam" required><option value="">Pilih…</option>${[9,10,11,13,14,15,16,17,18].map(h=>`<option>${String(h).padStart(2,'0')}:00</option>`).join('')}</select></div></div></fieldset>
+ <div class="f"><label class="l req" for="tgl">Tanggal</label><input id="tgl" name="tgl" type="date" ></div>
+ <div class="f"><label class="l req" for="jam">Jam</label><select id="jam" name="jam" ><option value="">Pilih…</option>${[9,10,11,13,14,15,16,17,18].map(h=>`<option>${String(h).padStart(2,'0')}:00</option>`).join('')}</select></div></div></fieldset>
  <p class="err" id="err" role="alert"></p><button class="btn" type="submit">Kirim pendaftaran</button></form>`;
  const d=new Date(),iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
  $('#tgl').min=iso;$('#lahir').max=iso;
