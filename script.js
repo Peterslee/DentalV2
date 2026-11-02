@@ -1,5 +1,5 @@
 const G=['Laki-laki','Perempuan'];
-const API=''; // Tempel URL Web App Google Apps Script di sini (lihat panduan). Kosong = mode lokal.
+const API='https://script.google.com/macros/s/AKfycbyL5t6P0Hln5uCaPBtmMjzSblme6pMcu7drP2RGCKCkVtrlm6EBx1n3E8eiEoH1CIfJjg/exec'; // Tempel URL Web App Google Apps Script di sini (lihat panduan). Kosong = mode lokal.
 let KEY='';
 async function api(b){const r=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({...b,key:KEY})});return r.json()}
 function loginView(msg){W('760px');app.innerHTML=`<button type="button" class="back" data-act="home">‹ Kembali</button><h1>Masuk staf</h1><p class="lead">Daftar pasien hanya untuk staf klinik. Masukkan PIN staf.</p><div class="f" style="max-width:320px"><label class="l" for="pin">PIN staf</label><input id="pin" type="password" autocomplete="current-password"></div><p class="err" id="pe">${msg}</p><button type="button" class="btn sb" style="--c:var(--teal)" data-act="login">Masuk</button>`}
