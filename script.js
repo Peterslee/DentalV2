@@ -158,6 +158,8 @@ app.addEventListener('change',e=>{const ch=e.target.closest('.chart');if(ch){con
 app.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t)return;const a=t.dataset.act;if(a=='form')form(t.dataset.k);else if(a=='home')home();else if(a=='print')window.print();else if(a=='list')lihat();else if(a=='cetakall')cetakSemua();else if(a=='hapusall')panelHapus();else if(a=='hapusall2')hapusSemua();else if(a=='batalhapus')$('#ha').innerHTML='';else if(a=='login'){KEY=($('#pin').value||'').trim();lihat()}else if(a=='det'){const x=document.getElementById('d-'+t.dataset.id);if(x){x.classList.toggle('hide');OPEN=x.classList.contains('hide')?'':t.dataset.id;t.textContent=x.classList.contains('hide')?'Detail':'Tutup'}}else if(a=='pay')bayar(t.dataset.id,t.closest('.pf'));else if(a=='addx')tambahX(t.closest('.xf'));else if(a=='delx'){if(!t.dataset.s){t.dataset.s=1;t.textContent='Yakin?';return}hapusX(t.dataset.id)}else if(a=='del'){if(!t.dataset.s){t.dataset.s=1;t.textContent='Tekan lagi untuk menghapus';return}hapus(t.dataset.id)}});
 app.addEventListener('input',e=>{if(e.target.type=='range')e.target.nextElementSibling.textContent=e.target.value;if(e.target.id=='q')draw()});
 const CLINIC='Klinik Gigi & Mulut';
+const LOGO='logo.png'; // Logo sendiri: isi dengan nama file (misalnya 'logo.png') atau alamat gambar. Kosong = logo gigi bawaan.
+if(LOGO){const lg=$('.logo'),im=new Image();im.src=LOGO;im.alt='Logo '+CLINIC;lg.textContent='';lg.appendChild(im);lg.classList.add('img')}
 $('#cn').textContent=CLINIC;document.title='Pendaftaran Pasien – '+CLINIC;
 function tick(){const d=new Date();
  $('#tgl-now').textContent=d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
